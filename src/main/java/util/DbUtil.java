@@ -1,5 +1,7 @@
 package util;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -17,7 +19,7 @@ public class DbUtil {
         } else {
             try {
                 Properties properties = new Properties();
-                InputStream inputStream = DbUtil.class.getClassLoader().getResourceAsStream("/db.properties");
+                InputStream inputStream = new FileInputStream(new File("/Users/andrej/Documents/Projects/SimpleJspServletDB/src/main/java/db.properties"));
                 properties.load(inputStream);
                 String driver = properties.getProperty("driver");
                 String url = properties.getProperty("url");

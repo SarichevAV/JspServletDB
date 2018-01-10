@@ -19,13 +19,14 @@ public class UserController extends HttpServlet {
     public static final String LIST_USER = "/listUser.jsp";
     private UserDao dao;
 
-    public UserController() {
-        super();
+    @Override
+    public void init() throws ServletException {
         dao = new UserDao();
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         String forward = "";
         String action = req.getParameter("action");
 
@@ -46,16 +47,7 @@ public class UserController extends HttpServlet {
             forward = INSERT_OR_EDIT;
         }
 
-        /**
-         *
-         * if ...
-         *
-         *
-         */
-
-        // TODO understand what is the RequestDispatcher
         RequestDispatcher view = req.getRequestDispatcher(forward);
-        // TODO what is the forward?
         view.forward(req, resp);
     }
 
@@ -82,8 +74,6 @@ public class UserController extends HttpServlet {
         }
 
         RequestDispatcher view = req.getRequestDispatcher(LIST_USER);
-
-        // TODO what is the setAttribure?
         req.setAttribute("users", dao.getAllUsers());
         view.forward(req, resp);
     }
