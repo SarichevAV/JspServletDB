@@ -3,22 +3,24 @@ package model;
 import java.util.Date;
 
 public class User {
-    private int userid;
-    private String firstname;
-    private String lastname;
+
+    private int userId;
+    private String firstName;
+    private String lastName;
     private Date dob;
     private String email;
 
-    public int getUserid() {
-        return userid;
+
+    public int getUserId() {
+        return userId;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
     public Date getDob() {
@@ -29,16 +31,16 @@ public class User {
         return email;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public void setDob(Date dob) {
@@ -52,9 +54,9 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "userid=" + userid +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
+                "userid=" + userId +
+                ", firstname='" + firstName + '\'' +
+                ", lastname='" + lastName + '\'' +
                 ", dob=" + dob +
                 ", email='" + email + '\'' +
                 '}';

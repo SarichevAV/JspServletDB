@@ -54,8 +54,8 @@ public class UserController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = new User();
-        user.setFirstname(req.getParameter("firstName"));
-        user.setLastname(req.getParameter("lastName"));
+        user.setFirstName(req.getParameter("firstName"));
+        user.setLastName(req.getParameter("lastName"));
 
         try {
             Date dob = new SimpleDateFormat("MM/dd/yyyy").parse(req.getParameter("dob"));
@@ -69,7 +69,7 @@ public class UserController extends HttpServlet {
         if (userid == null || userid.isEmpty()) {
             dao.addUser(user);
         } else {
-            user.setUserid(Integer.parseInt(userid));
+            user.setUserId(Integer.parseInt(userid));
             dao.updateUser(user);
         }
 

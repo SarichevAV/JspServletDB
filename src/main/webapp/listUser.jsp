@@ -5,10 +5,12 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+    <link rel="stylesheet" type="text/css" href="main.css">
     <title>Show All Users</title>
 </head>
-<body>
-<table border=1>
+<body class="main">
+<div>
+<table class="center">
     <thead>
     <tr>
         <th>User Id</th>
@@ -22,17 +24,18 @@
     <tbody>
     <c:forEach items="${users}" var="user">
         <tr>
-            <td><c:out value="${user.userid}" /></td>
-            <td><c:out value="${user.firstname}" /></td>
-            <td><c:out value="${user.lastname}" /></td>
+            <td><c:out value="${user.userId}" /></td>
+            <td><c:out value="${user.firstName}" /></td>
+            <td><c:out value="${user.lastName}" /></td>
             <td><fmt:formatDate pattern="yyyy-MMM-dd" value="${user.dob}" /></td>
             <td><c:out value="${user.email}" /></td>
-            <td><a href="UserController?action=edit&userId=<c:out value="${user.userid}"/>">Update</a></td>
-            <td><a href="UserController?action=delete&userId=<c:out value="${user.userid}"/>">Delete</a></td>
+            <td><a href="UserController?action=edit&userId=<c:out value="${user.userId}"/>">Update</a></td>
+            <td><a href="UserController?action=delete&userId=<c:out value="${user.userId}"/>">Delete</a></td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
-<p><a href="UserController?action=insert">Add User</a></p>
+<p><a href="UserController?action=insert" class="button" >Add User</a></p>
+</div>
 </body>
 </html>

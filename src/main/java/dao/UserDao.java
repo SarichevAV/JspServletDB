@@ -18,8 +18,8 @@ public class UserDao {
     public void addUser(User user) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Users(firstname, lastname, dob, email) VALUES (?, ?, ?, ?)");
-            preparedStatement.setString(1, user.getFirstname());
-            preparedStatement.setString(2, user.getLastname());
+            preparedStatement.setString(1, user.getFirstName());
+            preparedStatement.setString(2, user.getLastName());
             preparedStatement.setDate(3, new java.sql.Date(user.getDob().getTime()));
             preparedStatement.setString(4, user.getEmail());
             preparedStatement.executeUpdate();
@@ -42,11 +42,11 @@ public class UserDao {
     public void updateUser(User user) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Users SET firstname=?, lastname=?, dob=?, email=? WHERE userid=?");
-            preparedStatement.setString(1, user.getFirstname());
-            preparedStatement.setString(2, user.getLastname());
+            preparedStatement.setString(1, user.getFirstName());
+            preparedStatement.setString(2, user.getLastName());
             preparedStatement.setDate(3, new java.sql.Date(user.getDob().getTime()));
             preparedStatement.setString(4, user.getEmail());
-            preparedStatement.setInt(5, user.getUserid());
+            preparedStatement.setInt(5, user.getUserId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -60,9 +60,9 @@ public class UserDao {
             ResultSet resultSet = statement.executeQuery("SELECT * FROM Users");
             while (resultSet.next()) {
                 User user = new User();
-                user.setUserid(resultSet.getInt("userid"));
-                user.setFirstname(resultSet.getString("firstName"));
-                user.setLastname(resultSet.getString("lastName"));
+                user.setUserId(resultSet.getInt("userid"));
+                user.setFirstName(resultSet.getString("firstName"));
+                user.setLastName(resultSet.getString("lastName"));
                 user.setDob(resultSet.getDate("dob"));
                 user.setEmail(resultSet.getString("email"));
                 users.add(user);
@@ -81,9 +81,9 @@ public class UserDao {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                user.setUserid(resultSet.getInt("userid"));
-                user.setFirstname(resultSet.getString("firstname"));
-                user.setLastname(resultSet.getString("lastname"));
+                user.setUserId(resultSet.getInt("userid"));
+                user.setFirstName(resultSet.getString("firstname"));
+                user.setLastName(resultSet.getString("lastname"));
                 user.setDob(resultSet.getDate("dob"));
                 user.setEmail(resultSet.getString("email"));
             }
